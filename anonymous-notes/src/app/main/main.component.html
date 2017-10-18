@@ -1,0 +1,20 @@
+<section>
+  <div class="create">
+    <form (submit)="create()" #formData="ngForm">
+      <p>Note:
+        <input type="text" name="text"
+        required
+        [(ngModel)]="note.text"
+        >
+      </p> 
+      <input type='submit' value="Add Note" [disabled]="!formData.valid">
+    </form>
+  </div>
+</section>
+
+<div class='list'>
+  <div *ngFor="let note of notes" class="list">
+    <p>{{note.createdAt}}</p>
+    <h4>{{note.text}}</h4>
+  </div>
+</div>
